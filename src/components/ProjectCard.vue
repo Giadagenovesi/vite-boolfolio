@@ -1,4 +1,6 @@
 <script>
+import { store } from "../store";
+
 export default {
     name: 'ProjectCard',
     props: {
@@ -6,7 +8,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: "http://127.0.0.1:8000",
+            store   
         }
     }
 }

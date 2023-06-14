@@ -1,13 +1,14 @@
 <script>
 import axios from 'axios';
+import { store } from "./store";
 import ProjectCard from './components/ProjectCard.vue';
 
 export default {
   components: { ProjectCard },
   data() {
     return {
-      apiUrl: "http://127.0.0.1:8000",
-      projects: []
+      projects: [],
+      store
     }
   },
   mounted() {
@@ -16,7 +17,7 @@ export default {
   methods: {
     getProjects() {
       console.log('ecco i miei project')
-      axios.get(`${this.apiUrl}/api/projects`).then(resp => {
+      axios.get(`${store.apiUrl}/api/projects`).then(resp => {
         this.projects = resp.data.results; 
       });
     }
@@ -26,18 +27,16 @@ export default {
 
 <template>
   <div class="container py-5">
-    <h2>I miei Progetti</h2>
+    <h2 class="text-center">I miei Progetti</h2>
     <div class="row row-cols-3">
       <div class="col g-4" v-for="project in projects" :key="projects.id">
         <ProjectCard :project="project" />
       </div>
-
     </div>
   </div>
 </template>
 
 <style lang="scss">
 @use "./styles/general.scss" as *;
-
 
 </style>
