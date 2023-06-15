@@ -30,7 +30,9 @@ export default {
             <span v-if="project.type"> {{ project.type.name }}</span>
             <span v-else>Nessuna tipologia</span>
           </p>
-        </div>
+
+          <router-link :to='{ name: "single-project", params: { slug: project.slug } }' class="btn btn-primary">Dettagli</router-link>
+    </div>
 </template>
 
 <style lang="scss" scoped>
