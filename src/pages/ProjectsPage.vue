@@ -6,8 +6,8 @@ import Pagination from '../components/Pagination.vue';
 
 
 export default {
-    name: "ProjectsList",
-    components: { ProjectCard, Pagination, AppHeader },
+    name: "ProjectsPage",
+    components: { ProjectCard, Pagination },
     data() {
     return {
       projects: [],
