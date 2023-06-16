@@ -27,16 +27,16 @@ export default {
 
 <template>
     <section class="container">
-        <router-link :to="{ name: 'projects' }" class="btn btn-success mb-3">Back</router-link>
+        <router-link :to="{ name: 'projects' }" class="btn btn-primary mb-3">Indietro</router-link>
         <div v-if="project">
             <h2>{{ project.title }}</h2>
-            <div class="tags my-4">
-                <span v-for="(type, index) in project.types">#{{ type.name }} {{ index === project.types.length - 1 ? '' : ','
+            <p> {{ project.content }}</p>
+            <p> Tipologia: {{ project.type.name }}</p>
+            <div class=" my-4 text-primary">
+                <span>Tecnologie: </span>
+                <span v-for="(technology, index) in project.technologies"> {{ technology.name }} {{ index === project.technologies.length - 1 ? '.' : ','
                 }}</span>
             </div>
-            <p>
-                {{ project.content }}
-            </p>
         </div>
         <div v-else-if="errorMesage" class="my-4">
             {{ errorMesage }}

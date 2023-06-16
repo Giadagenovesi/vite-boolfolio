@@ -19,6 +19,7 @@ const router = createRouter({
             component: ProjectsPage,
         },
         {
+            // passo un parametro al path, per visualizzare 1 singolo progetto
             path: "/projects/:slug",
             name: "single-project",
             component: SingleProjectPage,
