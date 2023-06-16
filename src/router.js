@@ -4,6 +4,7 @@ import ProjectsPage from "./pages/ProjectsPage.vue";
 import AboutPage from "./pages/AboutPage.vue";
 import ContactPage from "./pages/ContactPage.vue";
 import SingleProjectPage from "./pages/SingleProjectpage.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -33,7 +34,13 @@ const router = createRouter({
             path: "/contact",
             name:"contact",
             component: ContactPage,
-        } 
+        },
+         // La rotta not found deve essere inserita allafine dell'array
+        {
+        path: "/:pathMatch(.*)*",
+        name: "not-found",
+        component: NotFound,
+        },
     ]
 });
 

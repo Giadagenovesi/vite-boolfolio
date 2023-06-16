@@ -15,12 +15,25 @@ export default {
         const slug = this.$route.params.slug;
         axios.get(`${this.store.apiUrl}/api/projects/${slug}`).then((resp) => {
 
-            if (resp.data.success) {
-                this.project = resp.data.results
+            // if (resp.data.success) {
+            //     this.project = resp.data.results
+            // } else {
+            //     this.errorMessage = resp.data.error
+            // }
+            this.project = resp.data.results;
+        },
+        erorr => {
+            if(error.response.status === 404) {
+                this.$router.push({name: "not-found"});
             } else {
-                this.errorMessage = resp.data.error
+                this.errorMessage = "Oops, qualcosa è andato styorto";
             }
         })
+    },
+    methods: {
+        // goBack() {
+        //     this.$router.go(-1);
+        // }
     }
 }
 </script>
